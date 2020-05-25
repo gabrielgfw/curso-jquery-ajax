@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="scripts/jquery-3.5.1.js"></script>
+    </head>
+
+    <body>
+
+        <h1 id="title">Title</h1>
+
+        <p class="paragraph">Paragraph Text 01</p>
+        <p class="paragraph">Paragraph Text 02</p>
+
+        <input type="text"></input>
+
+        <!-- Notar função dentro do evento onclick do botão -->
+        <button onclick="teste()">Teste</button>
+
+        <ul>
+            <li>List Element 01</li>
+            <li>List Element 02</li>
+            <li>List Element 03</li>
+            <li>List Element 04</li>
+            <li>List Element 05</li>
+        </ul>
+
+        <script>
+            // Exemplo de get, resgatando as informações de todos os elementos ul //
+            // trazendo o conteúdo do HTML dos elementos encontrados. //
+            alert($('ul').html());
+
+            function teste() {
+                
+                // Resgatará os elementos 'Input' presentes, resgatando o valor. //
+                // que estiver presente dentro do input no momento em que for chamado. //
+                alert($('input').val());
+
+                // O parâmetro permite modificar o conteúdo. //
+                $('input').val("");
+
+                // Caso o seletor possua mais de um elemento, concatenará os textos dos elementos. //
+                alert($('li').text());
+
+                // Retornar o valor do atributo do elemento selecionado. //
+                alert($('button').attr('onclick'));
+
+                // Alterando o valor do texto do título. //
+                $('#title').text('New Title');
+
+                // Alterará o conteúdo dos elementos 'p', pelo conteúdo html dentro do parâmetro. //
+                $('p').html('<a href="#">Link Teste</a>');
+            }
+
+        </script>
+    </body>
+</html>
