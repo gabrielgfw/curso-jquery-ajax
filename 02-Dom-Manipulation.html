@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="scripts/jquery-3.5.1.js"></script>
+    </head>
+    <body>
+        <h1 id="title">Title</h1>
+        <p class="paragraph">Paragraph Text 01</p>
+        <p class="paragraph">Paragraph Text 02</p>
+
+        <input type="text"></input>
+        <button onclick="addLi()">Add</button>
+        <button onclick="removeLi()">Remove</button>
+        <ul>
+            <li>List Element 01</li>
+            <li>List Element 02</li>
+            <li>List Element 03</li>
+            <li>List Element 04</li>
+            <li>List Element 05</li>
+        </ul>
+
+        <script>
+            function addLi() {
+
+                // Resgatando a quantidade de 'Children' associados ao elemento 'ul'. //
+                // Notar que como só existe um elemento 'ul', retornará o que precisamos. //
+                // Foi adicionado + 1 ao final, pois queremos acrescentar o número subsequente //
+                // à quantidade já existente de 'li'. // 
+                var count = $('ul').children().length + 1;
+
+                // Criando o text que será inserido dentro do novo 'li' element. //
+                if(count < 10) {
+                    var txt = "List Element 0" + count;
+                } else {
+                    var txt = "List Element " + count;
+                }
+
+                // Criando um novo elemento que receberá o texto criado anteriormente. //
+                var newLi = $('<li></li>').text(txt);
+
+                // Adicionando o novo elemento à 'ul' já existente. //
+                $('ul').append(newLi);
+            }
+
+            function removeLi() {
+
+                // Se o tamanho do array retornado for = 0, nada será feito. //
+                if ($('ul').children().length == 0) {
+                    return;
+                } else {
+                    
+                    // Seleciona dentro do elemento 'ul', o ultimo elemento 'li'. //
+                    $('ul li:last').remove();
+                }
+            }
+        </script>
+    </body>
+</html>
