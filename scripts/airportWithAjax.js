@@ -16,7 +16,7 @@ function onDataReceived(data, status, xhr) {
     $('#name').text(data.name);
     $('#city').text(data.city);
     $('#weather').text(data.weather.weather);
-    $('temeprature').text(data.weather.temp);
+    $('#temperature').text(data.weather.temp);
 };
 
 function onError(xhr, status, error) {
