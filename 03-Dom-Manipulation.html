@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="scripts/jquery-3.5.1.js"></script>
+    </head>
+    <body>
+        <h1 id="title">Title</h1>
+        <p class="paragraph">Paragraph Text 01</p>
+        <p class="paragraph">Paragraph Text 02</p>
+
+        <input type="text"></input>
+        <ul>
+            <li>List Element 01</li>
+            <li>List Element 02</li>
+            <li>List Element 03</li>
+            <li>List Element 04</li>
+            <li class="filtro-teste">List Element 05</li>
+        </ul>
+
+        <script>
+
+            f11();
+
+            // -------------------------------------------------------------------------------- //
+            // Seleciona todos os filhos 'ul' do elemento 'body', aplicando a função atribuida. //
+            // -------------------------------------------------------------------------------- //
+            function f01() {
+                $('body').children('ul').css('outline', '1px solid red');
+            };
+            // --------------------------------------------------- //
+            // Seleciona todos os filhos com a classe 'paragraph'. //
+            // --------------------------------------------------- //
+            function f02() {
+                $('body').children('.paragraph').css('outline', '1px solid blue');
+            };
+            // ----------------------------------------------------- //
+            // Seleciona o elemento com id 'title' dentro do 'body'. //
+            // ----------------------------------------------------- //
+            function f03() { 
+                $('body').children('#title').css('outline', '1px solid green');
+            };
+            // ----------------------------------------------------- //
+            // Seleciona o próximo elemento do parâmetro do seletor. //
+            // ----------------------------------------------------- //
+            function f04() {
+                $('h1').next().css('outline', '1px solid cyan');
+            };
+            // --------------------------------------------------------- //
+            // Seleciona todos os elementos após o parâmetro do seletor. //
+            // --------------------------------------------------------- //
+            function f05() {
+                $('p:last').nextAll().css('background-color', 'yellow');
+            };
+            // ----------------------------------------------------------------------- //
+            // Seleciona entre o parâmetro do seletor, até o parâmetro do 'nextUntil'. //
+            // ----------------------------------------------------------------------- //
+            function f06() {
+                $('p:last').nextUntil('ul').css('background-color', 'gray');
+            };
+            // ------------------------------------------------------ //
+            // Seleciona o elemento anterior ao parâmetro do seletor. //
+            // ------------------------------------------------------ //
+            function f07() {
+                $('p:last').prev().css('background-color', 'violet');
+            };
+            // ----------------------------------------------------------------------- //
+            // Seleciona entre o parâmerto do seletor, até o parâmetro do 'prevUntil'. //
+            // O segundo elemento de referência precisa estar antes do primeiro. //
+            // Realiza o oposto da função 'nextUntil()'. //
+            // ----------------------------------------------------------------------- //
+            function f08() {
+                $('p:last').prevUntil('h1').css('color', 'green');
+            };
+            // ---------------------------------------------- //
+            // Retorna um nível acima do elemento do seletor. //
+            // ---------------------------------------------- //
+            function f09() {
+                $('li:first').parent().css('outline', '1px solid red');
+            };
+            // ----------------------------------------------------- //
+            // Retorna todos os níveis acima do elemento do seletor. //
+            // ----------------------------------------------------- //
+            function f10() {
+                $('li:first').parents().css('outline', '1px solid red');
+            };
+            // ---------------------------------------------------- //
+            // Seleciona todos os níveis acima entre os parâmetros. //
+            // ---------------------------------------------------- //
+            function f11() {
+                $('li:first').parentsUntil('body').css('outline', '1px solid red');
+            };
+            // -------------------------------------------------------------------- //
+            // Seleciona o primeiro elemento compatível com o parâmetro do seletor. //
+            // -------------------------------------------------------------------- //
+            function f12() {
+                $('li').first().css('outline', '1px solid red');
+            };
+            // -------------------------------------------------------------------- //
+            // Seleciona o ultimo elemento compatível com o o parâmetro do seletor. //
+            // -------------------------------------------------------------------- //
+            function f13() {
+                $('li').last().css('outline', '1px solid red');
+            };
+            // --------------------------------- //
+            // Seleciona pelo index do elemento. //
+            // --------------------------------- // 
+            function f14() {
+                $('li').eq(2).css('outline', '1px solid red');
+            }
+            // ------------------------------------------------------------------ //
+            // Seleciona dos elementos encontrados no primeiro seletor, que forem //
+            // compatíveis com o filtro.                                          //
+            // ------------------------------------------------------------------ //
+            function f15() {
+                $('li').filter('.filtro-teste').css('outline', '1px solid red');
+            }
+            // --------------------------------------------------------------------- //
+            // Seleciona todos os elementos encontrados no seletor, com excessão ao  //
+            // parâmetro dentro da função 'not('o que estiver aqui será ignorado')'. //
+            // --------------------------------------------------------------------- //
+            function f16() {
+                $('li').not('.filtro-teste').css('outline', '1px solid red');
+            }
+
+        </script>
+    </body>
+</html>
