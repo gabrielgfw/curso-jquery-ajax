@@ -1,4 +1,4 @@
-# Curso Jquery & Ajax [Curso via Udemy](https://www.udemy.com/course/jquery-dom-and-ajax-concept-explained-for-beginners/).
+# [Curso Jquery & Ajax](https://www.udemy.com/course/jquery-dom-and-ajax-concept-explained-for-beginners/).
 
 ###### 01 - Manipulação do DOM:
 
