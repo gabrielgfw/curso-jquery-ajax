@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+// ----------------------------- //
+// data = Conteúdo do retorno;   //
+// status = Condição do retorno; //
+// xhr = XML Http Request.       //
+// ----------------------------- //
 function onDataReceived(data, status, xhr) {
     console.log(data);
     console.log(status);
@@ -21,8 +26,19 @@ function onError(xhr, status, error) {
 
     var msg;
 
+    // ------------------------------------------------- //
+    // Caso o servidor retorne algum erro na requisição. //
+    // ------------------------------------------------- //
     if(error == "Internal Server Error") {
         msg = xhr.responseJSON.Exception.Message;
+    // ------------------------------------------------------------------- //
+    // Caso o servidor demore mais de 3 segundos para retornar (timeout). //
+    // ------------------------------------------------------------------- //
+    } else if (status == 'timeout') {
+        msg = "The server took too long to respond.";
+    // --------------------------------------------------------------------- //
+    // Caso a chamada não tenha tido sucesso ao se comunicar com o servidor. //
+    // --------------------------------------------------------------------- //
     } else {
         msg = "Unable to communicate with the server.";
     }
@@ -38,9 +54,10 @@ function onError(xhr, status, error) {
             
             // 1 - URL da requisição. //
             // 2 - Tipo de chamada HTTP que será requisitado à URL. //
-            // 3 - Em caso de sucesso, será chamada a função abaixo. //
-            // 4 - Adicionando ao header o formato que queremos o  retorno (json). //
-            // 5 - Tratamento de erros, feedback ao usuário. //
+            // 3 - Em caso de sucesso, será chamada a função 'onDataReceived'. //
+            // 4 - Adicionando ao header o formato que queremos o retorno (json). //
+            // 5 - Tratamento de erros, chamando a função 'onError'. //
+            // 6 - Timeout para definir tempo limite aguardando resposta. //
 
             url: 'http://services.faa.gov/airport/status/{CODE}'.replace('{CODE}', $('input').val()),
             type: 'GET',
@@ -48,7 +65,8 @@ function onError(xhr, status, error) {
             headers: {
                 Accept: 'application/json'
             },
-            error: onError
+            error: onError,
+            timeout: 3000
         };
         $.ajax(request);
     });
